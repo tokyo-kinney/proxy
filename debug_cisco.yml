@@ -20,7 +20,7 @@
 
      - name: Do a URI call or http get to test proxy
        ansible.builtin.uri:
-         url: https://node2.bkinney.lan/
+         url: http://node2.bkinney.lan/
          method: GET
          validate_certs: false
          return_content: true
