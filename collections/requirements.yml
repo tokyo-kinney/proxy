@@ -2,4 +2,4 @@
 collections:
 # Modules
   - name: cisco.dcnm
-  - name: ansibl.netcommon
+  - name: ansible.netcommon
