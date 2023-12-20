@@ -24,6 +24,7 @@
          method: GET
          validate_certs: false
          return_content: true
+         use_proxy: false
        register: r1
 
      - name: "worker device_serial_number_get"
