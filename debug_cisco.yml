@@ -20,7 +20,7 @@
 
      - name: Do a URI call or http get to test proxy
        ansible.builtin.uri:
-         url: https://10.88.5.171/
+         url: https://node2.bkinney.lan/
          method: GET
          validate_certs: false
        register: r1
@@ -30,7 +30,7 @@
          fabric: "Site3-Fabric"
          state: query
          config:
-           - seed_ip: "10.88.4.142"
+           - seed_ip: "http://node2.bkinney.lan/"
        register: r1
        vars:
          ansible_connection: ansible.netcomm.httpapi
