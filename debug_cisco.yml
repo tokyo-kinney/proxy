@@ -23,6 +23,7 @@
          url: https://node2.bkinney.lan/
          method: GET
          validate_certs: false
+         return_content: true
        register: r1
 
      - name: "worker device_serial_number_get"
@@ -31,6 +32,6 @@
          state: query
          config:
            - seed_ip: "http://node2.bkinney.lan/"
-       register: r1
+       register: r2
        vars:
          ansible_connection: ansible.netcomm.httpapi
