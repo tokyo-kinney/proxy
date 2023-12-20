@@ -1,0 +1,33 @@
+- hosts: all
+  gather_facts: false
+  connection: ansibl.netcommon.httpapi
+  vars:
+    proxy_env:
+      no_proxy: "localhost,127.0.0.1,web.bkinney.lan"
+      NO_PROXY: "localhost,127.0.0.1,web.bkinney.lan"
+
+  environment:
+    no_proxy: "web.bkinney.lan"
+    NO_PROXY: "web.bkinney.lan"
+
+  tasks:
+    -name: Debug Task
+      ansible.builtin.debug:
+        msg: ENVIRONMENT NO_PROXY {{ proxy_env }}
+
+    - name: Do a URI call or http get to test proxy
+      ansible.builtin.uri:
+        url: https://10.88.5.171/
+        method: GET
+        validate_certs: false
+      register: r1
+
+    - name: "worker device_serial_number_get"
+      cisco.dcnm.dcnm_inventory:
+        fabric: "Site3-Fabric"
+        state: query
+        config:
+        - seed_ip: "10.88.4.142"
+      register: r1
+      vars:
+        ansible_connection: ansible.netcomm.httpapi
