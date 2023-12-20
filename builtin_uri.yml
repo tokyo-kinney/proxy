@@ -2,16 +2,16 @@
  - name: Test Proxy Playbook
    hosts: all
    gather_facts: false
-   connection: ansible.netcommon.httpapi
+   #connection: ansible.netcommon.httpapi
    
-   vars:
-     proxy_env:
-       no_proxy: "localhost,127.0.0.1,web.bkinney.lan"
-       NO_PROXY: "localhost,127.0.0.1,web.bkinney.lan"
+   #vars:
+   #  proxy_env:
+   #    no_proxy: "localhost,127.0.0.1,web.bkinney.lan"
+   #    NO_PROXY: "localhost,127.0.0.1,web.bkinney.lan"
 
-   environment:
-     no_proxy: "web.bkinney.lan"
-     NO_PROXY: "web.bkinney.lan"
+   #environment:
+   #  no_proxy: "web.bkinney.lan"
+   #  NO_PROXY: "web.bkinney.lan"
 
    tasks:
      - name: Debug Task
