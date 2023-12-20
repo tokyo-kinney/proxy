@@ -1,0 +1,24 @@
+---
+ - name: Test Proxy Playbook
+   hosts: all
+   gather_facts: false
+   connection: ansible.netcommon.httpapi
+   
+   vars:
+     proxy_env:
+       no_proxy: "localhost,127.0.0.1,web.bkinney.lan"
+       NO_PROXY: "localhost,127.0.0.1,web.bkinney.lan"
+
+   environment:
+     no_proxy: "web.bkinney.lan"
+     NO_PROXY: "web.bkinney.lan"
+
+   tasks:
+     - name: Debug Task
+       ansible.builtin.debug:
+         msg: ENVIRONMENT NO_PROXY {{ proxy_env }}
+
+     - name: Check if devopsjunction.com is available and returning status 200
+       uri:
+         url: https://devopsjunction.com
+         register: result
