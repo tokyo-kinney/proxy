@@ -14,7 +14,7 @@
      NO_PROXY: "web.bkinney.lan"
 
    tasks:
-     -name: Debug Task
+     - name: Debug Task
        ansible.builtin.debug:
          msg: ENVIRONMENT NO_PROXY {{ proxy_env }}
 
