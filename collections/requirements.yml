@@ -2,3 +2,4 @@
 collections:
 # Modules
   - name: cisco.dcnm
+  - name: ansibl.netcommon
