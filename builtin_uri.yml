@@ -14,10 +14,6 @@
    #  NO_PROXY: "web.bkinney.lan"
 
    tasks:
-     - name: Debug Task
-       ansible.builtin.debug:
-         msg: ENVIRONMENT NO_PROXY {{ proxy_env }}
-
      - name: Check if devopsjunction.com is available and returning status 200
        uri:
          url: https://devopsjunction.com
